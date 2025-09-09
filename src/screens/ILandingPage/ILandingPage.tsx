@@ -1,290 +1,195 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "../../components/ui/button";
 import { Card, CardContent } from "../../components/ui/card";
-import { Tabs, TabsList, TabsTrigger } from "../../components/ui/tabs";
+import { SearchBar } from "../../components/ui/search-bar";
+import {
+  Menu,
+  BookOpen,
+  Users,
+  Award,
+  Twitter,
+  Facebook,
+  Instagram,
+} from "lucide-react";
 
-const howItWorksSteps = [
+const features = [
   {
-    title: "Sign Up",
-    subtitle: "Choose Your Course",
-    image: "https://c.animaapp.com/mfbjddyn8jUtGn/img/image-6.png",
+    title: "Interactive Courses",
+    icon: BookOpen,
+    description: "Engaging lessons that adapt to your pace.",
   },
   {
-    title: "Enrol for the Courses",
-    subtitle: "Secure Your Spot",
-    image: "https://c.animaapp.com/mfbjddyn8jUtGn/img/image-7.png",
-    overlayImage: "https://c.animaapp.com/mfbjddyn8jUtGn/img/image-8.png",
+    title: "Expert Tutors",
+    icon: Users,
+    description: "Learn from experienced educators.",
   },
   {
-    title: "Start learning",
-    subtitle: "Begin Your Journey",
-    image: "https://c.animaapp.com/mfbjddyn8jUtGn/img/image-9.png",
+    title: "Certification",
+    icon: Award,
+    description: "Earn credentials to showcase your skills.",
   },
-];
-
-const testimonials = [
-  {
-    name: "Lorem M.A",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    avatar: "https://c.animaapp.com/mfbjddyn8jUtGn/img/image-13.png",
-  },
-  {
-    name: "Ipsum O",
-    text: "Lorem ipsum dolor sit amet.",
-    avatar: "https://c.animaapp.com/mfbjddyn8jUtGn/img/image-13.png",
-  },
-  {
-    name: "Sit A",
-    text: "Lorem ipsum dolor sit amet, consectetur.",
-    avatar: "https://c.animaapp.com/mfbjddyn8jUtGn/img/image-12.png",
-  },
-];
-
-const footerLinks = [
-  { text: "Terms", href: "#" },
-  { text: "Privacy", href: "#" },
-  { text: "Help", href: "#" },
 ];
 
 export const ILandingPage = (): JSX.Element => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
-    <div className="bg-white min-h-screen w-full" data-model-id="160:1713">
-      <div className="max-w-[1920px] mx-auto bg-[#f9f9f9] rounded-[20px] overflow-hidden">
-        {/* Header Section */}
-        <header className="bg-[#33a1cd] rounded-[30px] border border-white p-8 relative overflow-hidden">
-          <div className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:0ms]">
-            {/* Navigation */}
-            <nav className="flex justify-between items-center mb-8">
-              <div className="flex items-center gap-4">
-                <Tabs
-                  defaultValue="home"
-                  className="bg-[#f9f9f9] rounded-[40px] border border-white shadow-[0px_4px_4px_#00000040]"
-                >
-                  <TabsList className="bg-transparent p-0 h-auto">
-                    <TabsTrigger
-                      value="home"
-                      className="bg-[#33a1cd] text-white border border-white rounded-[40px] px-16 py-8 text-4xl font-normal data-[state=active]:bg-[#33a1cd] data-[state=active]:text-white h-auto"
-                    >
-                      Home
-                    </TabsTrigger>
-                    <TabsTrigger
-                      value="subscriptions"
-                      className="bg-transparent text-black px-16 py-8 text-4xl font-normal data-[state=active]:bg-[#33a1cd] data-[state=active]:text-white h-auto"
-                    >
-                      Subscriptions
-                    </TabsTrigger>
-                  </TabsList>
-                </Tabs>
-              </div>
-
-              <div className="bg-[#f9f9f9] rounded-[30px] shadow-[0px_4px_4px_#00000040] px-12 py-4">
-                <div className="flex items-center gap-8">
-                  <Button
-                    variant="ghost"
-                    className="text-black text-4xl font-normal p-0 h-auto hover:bg-transparent"
-                  >
-                    LOG IN
-                  </Button>
-                  <Button
-                    variant="ghost"
-                    className="text-black text-4xl font-normal p-0 h-auto hover:bg-transparent"
-                  >
-                    SIGN UP
-                  </Button>
-                </div>
-              </div>
-            </nav>
-          </div>
-
-          {/* Hero Content */}
-          <div className="grid lg:grid-cols-2 gap-8 items-center">
-            <div className="space-y-6">
-              <div className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms]">
-                <h1 className="[font-family:'Inter',Helvetica] font-bold text-white text-[64px] leading-normal">
-                  Infoverse Digital-Ed
-                </h1>
-              </div>
-
-              <div className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:400ms]">
-                <h2 className="[font-family:'Inria_Serif',Helvetica] font-bold text-white text-[70px] leading-normal">
-                  Unlock a universe of knowledge. Your potential is waiting.
-                </h2>
-              </div>
-
-              <div className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:600ms]">
-                <p className="[font-family:'Inter',Helvetica] font-normal text-white text-5xl leading-normal">
-                  Your personalized path to exam success.
-                </p>
-              </div>
-
-              <div className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:800ms]">
-                <Button className="bg-[#dd7c5e] hover:bg-[#dd7c5e]/90 text-white text-4xl font-normal px-16 py-8 rounded-[30px] h-auto">
-                  Explore Courses
-                </Button>
-              </div>
-            </div>
-
-            <div className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:1000ms]">
-              <img
-                className="w-full max-w-[701px] h-auto rounded-[30px] object-cover"
-                alt="Student studying"
-                src="https://c.animaapp.com/mfbjddyn8jUtGn/img/pexels-leticia-alvares-1805702-30539351-edited-1.png"
-              />
-            </div>
-          </div>
-        </header>
-
-        {/* How It Works Section */}
-        <section className="py-16 px-8">
-          <div className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms]">
-            <h2 className="text-center [font-family:'Inter',Helvetica] font-semibold text-black text-[80px] leading-normal mb-16">
-              How It Works
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {howItWorksSteps.map((step, index) => (
-              <div
-                key={index}
-                className={`text-center translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:${400 + index * 200}ms]`}
-              >
-                <div className="bg-[#dd7c5e] rounded-[30px] w-[219px] h-[211px] mx-auto mb-6 flex items-center justify-center relative">
-                  {step.overlayImage ? (
-                    <div
-                      className="relative w-[177px] h-[177px] bg-cover bg-center bg-no-repeat"
-                      style={{ backgroundImage: `url(${step.image})` }}
-                    >
-                      <img
-                        className="w-[101px] h-[101px] absolute top-0 right-0 object-cover"
-                        alt="Overlay"
-                        src={step.overlayImage}
-                      />
-                    </div>
-                  ) : step.image ===
-                    "https://c.animaapp.com/mfbjddyn8jUtGn/img/image-9.png" ? (
-                    <img
-                      className="w-[180px] h-[180px] object-cover"
-                      alt="Step icon"
-                      src={step.image}
-                    />
-                  ) : (
-                    <img
-                      className="w-[173px] h-[173px] object-cover"
-                      alt="Step icon"
-                      src={step.image}
-                    />
-                  )}
-                </div>
-                <h3 className="[font-family:'Inter',Helvetica] font-semibold text-black text-5xl leading-normal mb-2">
-                  {step.title}
-                </h3>
-                <p className="[font-family:'Inter',Helvetica] font-normal text-black text-5xl leading-normal text-center">
-                  {step.subtitle}
-                </p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Ready to Get that A Section */}
-        <section className="py-16 px-8">
-          <div className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms]">
-            <h2 className="text-center [font-family:'Inter',Helvetica] font-semibold text-black text-[80px] leading-normal mb-8">
-              Ready to Get that A?
-            </h2>
-          </div>
-
-          <div className="flex justify-center mb-8 translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:400ms]">
-            <img
-              className="w-full max-w-[1583px] h-auto object-cover"
-              alt="Success visualization"
-              src="https://c.animaapp.com/mfbjddyn8jUtGn/img/image-10.png"
-            />
-          </div>
-
-          <div className="text-center translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:600ms]">
-            <Button className="bg-[#dd7c5e] hover:bg-[#dd7c5e]/90 text-[#fffdfd] text-5xl font-normal px-16 py-8 rounded-[30px] h-auto">
-              Sign Up Today
+    <div className="flex min-h-screen flex-col bg-background">
+      {/* Header */}
+      <header className="sticky top-0 z-40 w-full border-b bg-white/90 backdrop-blur">
+        <div className="container flex h-16 items-center justify-between">
+          <a href="#" className="text-xl font-bold text-primary">
+            Infoverse
+          </a>
+          <nav className="hidden md:flex items-center gap-6">
+            <a
+              href="#"
+              className="text-sm font-medium text-foreground transition-colors hover:text-primary"
+            >
+              Home
+            </a>
+            <a
+              href="#"
+              className="text-sm font-medium text-foreground transition-colors hover:text-primary"
+            >
+              Subscriptions
+            </a>
+          </nav>
+          <div className="hidden md:flex items-center gap-2">
+            <Button variant="ghost">Log In</Button>
+            <Button className="bg-secondary text-white hover:bg-secondary/90">
+              Sign Up
             </Button>
           </div>
-        </section>
+          <button
+            className="md:hidden rounded-md p-2 text-foreground transition-colors hover:bg-muted focus:outline-none"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle menu"
+          >
+            <Menu className="h-6 w-6" />
+          </button>
+        </div>
+        <div
+          className={`${menuOpen ? "block" : "hidden"} md:hidden border-t bg-white`}
+        >
+          <nav className="container flex flex-col gap-2 py-4">
+            <a
+              href="#"
+              className="py-1 text-sm font-medium text-foreground transition-colors hover:text-primary"
+            >
+              Home
+            </a>
+            <a
+              href="#"
+              className="py-1 text-sm font-medium text-foreground transition-colors hover:text-primary"
+            >
+              Subscriptions
+            </a>
+            <div className="mt-2 flex gap-2">
+              <Button variant="ghost" className="flex-1">
+                Log In
+              </Button>
+              <Button className="flex-1 bg-secondary text-white hover:bg-secondary/90">
+                Sign Up
+              </Button>
+            </div>
+          </nav>
+        </div>
+      </header>
 
-        {/* Testimonials Section */}
-        <section className="py-16 px-8">
-          <div className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms]">
-            <h2 className="text-center [font-family:'Inter',Helvetica] font-semibold text-black text-[80px] leading-normal mb-4">
-              What Learners Say
-            </h2>
-            <p className="text-center [font-family:'Inter',Helvetica] font-normal text-black text-4xl leading-normal mb-16">
-              Trusted Voices
+      {/* Hero */}
+      <section className="relative overflow-hidden bg-gradient-to-r from-primary to-secondary py-24 text-white">
+        <div className="container flex flex-col items-center gap-10 text-center md:flex-row md:text-left">
+          <div className="flex-1 space-y-6">
+            <h1 className="text-5xl font-bold leading-tight md:text-6xl">
+              Infoverse Digital-Ed
+            </h1>
+            <p className="text-lg md:text-xl">
+              Unlock a universe of knowledge. Your potential is waiting.
             </p>
+            <div className="mx-auto w-full md:mx-0">
+              <SearchBar />
+            </div>
+            <Button className="mt-4 rounded-full bg-secondary px-8 py-4 text-lg font-medium text-white shadow transition-colors hover:bg-secondary/90">
+              Explore Courses
+            </Button>
           </div>
+          <img
+            src="https://c.animaapp.com/mfbjddyn8jUtGn/img/pexels-leticia-alvares-1805702-30539351-edited-1.png"
+            alt="Student studying"
+            className="flex-1 max-w-md rounded-xl shadow-lg"
+          />
+        </div>
+      </section>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {testimonials.map((testimonial, index) => (
-              <div
-                key={index}
-                className={`translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:${400 + index * 200}ms]`}
+      {/* Features */}
+      <section className="py-20">
+        <div className="container">
+          <h2 className="text-center text-3xl font-semibold">Features</h2>
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
+            {features.map((feature) => (
+              <Card
+                key={feature.title}
+                className="text-center transition-shadow hover:shadow-lg"
               >
-                <Card className="bg-[#bdd0d2] border-none rounded-[30px] h-[259px] relative">
-                  <CardContent className="p-6 h-full flex flex-col justify-between">
-                    <p className="[font-family:'Inter',Helvetica] font-normal text-black text-3xl text-center leading-normal">
-                      {testimonial.text}
-                    </p>
-                    <div className="text-center">
-                      <p className="[font-family:'Inter',Helvetica] font-bold text-black text-[32px] leading-normal">
-                        {testimonial.name}
-                      </p>
-                    </div>
-                  </CardContent>
-                </Card>
-                <div className="flex justify-center mt-4">
-                  <img
-                    className="w-40 h-40 object-cover"
-                    alt={`${testimonial.name} avatar`}
-                    src={testimonial.avatar}
+                <CardContent className="flex flex-col items-center space-y-4 p-6">
+                  <feature.icon
+                    className="h-12 w-12 text-primary"
+                    aria-hidden="true"
                   />
-                </div>
-              </div>
+                  <h3 className="text-xl font-semibold">{feature.title}</h3>
+                  <p className="text-sm text-muted-foreground">
+                    {feature.description}
+                  </p>
+                </CardContent>
+              </Card>
             ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Footer */}
-        <footer className="bg-[#33a1cd] rounded-[20px] p-8">
-          <div className="flex flex-col lg:flex-row justify-between items-start gap-8">
-            <div className="flex items-center gap-4">
-              <img
-                className="w-[117px] h-[117px] rounded-[56px] object-cover"
-                alt="Company logo"
-                src="https://c.animaapp.com/mfbjddyn8jUtGn/img/with-bg-1.png"
-              />
-            </div>
-
-            <div className="flex-1">
-              <div className="[font-family:'Inter',Helvetica] font-normal text-white text-[32px] leading-normal">
-                United Kingdom: +447412858175
-                <br />
-                West Africa: +2349032840916
-                <br />
-                Email: info@infoversedigitaleducation.net
-              </div>
-            </div>
-
-            <div className="flex gap-8">
-              {footerLinks.map((link, index) => (
-                <a
-                  key={index}
-                  href={link.href}
-                  className="[font-family:'Inter',Helvetica] font-normal text-white text-4xl leading-normal hover:underline"
-                >
-                  {link.text}
+      {/* Footer */}
+      <footer className="bg-primary py-12 text-white">
+        <div className="container grid gap-8 md:grid-cols-3">
+          <div>
+            <h3 className="mb-4 text-lg font-semibold">Links</h3>
+            <ul className="space-y-2">
+              <li>
+                <a href="#" className="hover:underline">
+                  Home
                 </a>
-              ))}
+              </li>
+              <li>
+                <a href="#" className="hover:underline">
+                  Subscriptions
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="mb-4 text-lg font-semibold">Contact</h3>
+            <p className="text-sm">info@example.com</p>
+            <p className="text-sm">+1 (555) 123-4567</p>
+          </div>
+          <div>
+            <h3 className="mb-4 text-lg font-semibold">Follow Us</h3>
+            <div className="flex space-x-4">
+              <a href="#" aria-label="Twitter" className="hover:text-secondary">
+                <Twitter className="h-5 w-5" />
+              </a>
+              <a href="#" aria-label="Facebook" className="hover:text-secondary">
+                <Facebook className="h-5 w-5" />
+              </a>
+              <a href="#" aria-label="Instagram" className="hover:text-secondary">
+                <Instagram className="h-5 w-5" />
+              </a>
             </div>
           </div>
-        </footer>
-      </div>
+        </div>
+        <p className="mt-8 text-center text-sm">
+          &copy; {new Date().getFullYear()} Infoverse Digital-Ed. All rights reserved.
+        </p>
+      </footer>
     </div>
   );
 };
