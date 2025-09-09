@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infoverse Digital-Ed - Enhanced Landing Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3ba0ae',
+                        secondary: '#e8704f',
+                        accent: '#f0f9fa',
+                        dark: '#1a1a2e',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'slide-up': 'slideUp 0.5s ease-out',
+                        'fade-in': 'fadeIn 0.8s ease-out',
+                        'pulse-slow': 'pulse 3s ease-in-out infinite',
+                        'gradient': 'gradient 8s ease infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        gradient: {
+                            '0%, 100%': { backgroundPosition: '0% 50%' },
+                            '50%': { backgroundPosition: '100% 50%' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Inria+Serif:wght@700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        .serif-heading {
+            font-family: 'Inria Serif', serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #3ba0ae 0%, #4bb8c8 50%, #e8704f 100%);
+            background-size: 200% 200%;
+            animation: gradient 8s ease infinite;
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(59, 160, 174, 0.2);
+        }
+        
+        .btn-glow {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-glow::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .btn-glow:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .scroll-indicator {
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+        
+        .testimonial-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.95));
+            backdrop-filter: blur(10px);
+        }
+        
+        .feature-icon-bg {
+            background: linear-gradient(135deg, rgba(59, 160, 174, 0.1), rgba(232, 112, 79, 0.1));
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #3ba0ae, #e8704f);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .stats-number {
+            background: linear-gradient(135deg, #3ba0ae, #e8704f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Enhanced Header -->
+    <header class="fixed top-0 w-full z-50 glass-effect bg-white/90">
+        <div class="container mx-auto px-6">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 gradient-bg rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-xl">I</span>
+                    </div>
+                    <span class="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                        Infoverse
+                    </span>
+                </div>
+                
+                <!-- Navigation -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link text-gray-700 hover:text-primary transition-colors font-medium">Home</a>
+                    <a href="#courses" class="nav-link text-gray-700 hover:text-primary transition-colors font-medium">Courses</a>
+                    <a href="#features" class="nav-link text-gray-700 hover:text-primary transition-colors font-medium">Features</a>
+                    <a href="#testimonials" class="nav-link text-gray-700 hover:text-primary transition-colors font-medium">Success Stories</a>
+                    <a href="#pricing" class="nav-link text-gray-700 hover:text-primary transition-colors font-medium">Pricing</a>
+                </nav>
+                
+                <!-- CTA Buttons -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <button class="px-6 py-2.5 text-gray-700 hover:text-primary transition-all font-medium">
+                        Log In
+                    </button>
+                    <button class="btn-glow px-8 py-3 gradient-bg text-white rounded-full font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all">
+                        Start Free Trial
+                    </button>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden p-2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Enhanced Hero Section -->
+    <section class="relative min-h-screen gradient-bg flex items-center pt-20">
+        <!-- Animated Background Elements -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute w-96 h-96 bg-white/10 rounded-full blur-3xl -top-48 -left-48 animate-float"></div>
+            <div class="absolute w-96 h-96 bg-white/10 rounded-full blur-3xl -bottom-48 -right-48 animate-float" style="animation-delay: 3s"></div>
+        </div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Content -->
+                <div class="text-white space-y-8 animate-slide-up">
+                    <div class="inline-flex items-center px-4 py-2 bg-white/20 rounded-full backdrop-blur-sm">
+                        <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse mr-2"></span>
+                        <span class="text-sm font-medium">New courses added weekly</span>
+                    </div>
+                    
+                    <h1 class="serif-heading text-5xl md:text-6xl lg:text-7xl leading-tight">
+                        Unlock a Universe of
+                        <span class="relative">
+                            Knowledge
+                            <svg class="absolute -bottom-2 left-0 w-full" viewBox="0 0 300 20" fill="none">
+                                <path d="M5 15C100 5 200 5 295 15" stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
+                            </svg>
+                        </span>
+                    </h1>
+                    
+                    <p class="text-xl md:text-2xl text-white/90 leading-relaxed">
+                        Your potential is waiting. Join thousands of learners transforming their careers with personalized education.
+                    </p>
+                    
+                    <!-- Search Bar -->
+                    <div class="relative max-w-lg">
+                        <input type="text" placeholder="Search for courses, topics, or skills..." 
+                               class="w-full px-6 py-4 pr-32 rounded-full bg-white/95 text-gray-800 placeholder-gray-500 shadow-2xl focus:outline-none focus:ring-4 focus:ring-white/30">
+                        <button class="absolute right-2 top-1/2 -translate-y-1/2 px-6 py-2 bg-gradient-to-r from-primary to-secondary text-white rounded-full font-semibold hover:shadow-lg transition-all">
+                            Explore
+                        </button>
+                    </div>
+                    
+                    <!-- Stats -->
+                    <div class="flex flex-wrap gap-8 pt-4">
+                        <div>
+                            <div class="text-3xl font-bold">50K+</div>
+                            <div class="text-white/80">Active Learners</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold">1,200+</div>
+                            <div class="text-white/80">Expert Courses</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold">95%</div>
+                            <div class="text-white/80">Success Rate</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Hero Image -->
+                <div class="relative animate-fade-in" style="animation-delay: 0.3s">
+                    <div class="relative z-10">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800" 
+                             alt="Students learning" 
+                             class="rounded-2xl shadow-2xl">
+                        <!-- Floating Elements -->
+                        <div class="absolute -top-4 -right-4 bg-white rounded-xl shadow-xl p-4 animate-float">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"/>
+                                        <path fill-rule="evenodd" d="M4 5a2 2 0 012-2 1 1 0 000 2H6a2 2 0 100 4h2a2 2 0 100-4h-.5a1 1 0 000-2H8a2 2 0 012 2v9a2 2 0 11-4 0V5z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="font-semibold">Certified</div>
+                                    <div class="text-sm text-gray-600">Courses</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="absolute -bottom-4 -left-4 bg-white rounded-xl shadow-xl p-4 animate-float" style="animation-delay: 2s">
+                            <div class="flex items-center space-x-3">
+                                <div class="flex -space-x-2">
+                                    <img src="https://i.pravatar.cc/40?img=1" class="w-8 h-8 rounded-full border-2 border-white">
+                                    <img src="https://i.pravatar.cc/40?img=2" class="w-8 h-8 rounded-full border-2 border-white">
+                                    <img src="https://i.pravatar.cc/40?img=3" class="w-8 h-8 rounded-full border-2 border-white">
+                                </div>
+                                <div>
+                                    <div class="font-semibold">Live Classes</div>
+                                    <div class="text-sm text-gray-600">Join now</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 scroll-indicator">
+            <svg class="w-6 h-6 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+        </div>
+    </section>
+    
+    <!-- How It Works Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="serif-heading text-4xl md:text-5xl mb-4">How It Works</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Get started in three simple steps and begin your learning journey today</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Step 1 -->
+                <div class="relative">
+                    <div class="text-center space-y-4">
+                        <div class="w-20 h-20 mx-auto bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl flex items-center justify-center transform rotate-3 hover:rotate-0 transition-transform">
+                            <svg class="w-10 h-10 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold">1. Sign Up</h3>
+                        <p class="text-gray-600">Create your free account and explore our course catalog</p>
+                    </div>
+                    <div class="hidden md:block absolute top-1/2 -right-4 w-8 text-gray-300">
+                        <svg fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </div>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="relative">
+                    <div class="text-center space-y-4">
+                        <div class="w-20 h-20 mx-auto bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl flex items-center justify-center transform -rotate-3 hover:rotate-0 transition-transform">
+                            <svg class="w-10 h-10 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold">2. Enroll</h3>
+                        <p class="text-gray-600">Choose from thousands of courses that match your goals</p>
+                    </div>
+                    <div class="hidden md:block absolute top-1/2 -right-4 w-8 text-gray-300">
+                        <svg fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </div>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="text-center space-y-4">
+                    <div class="w-20 h-20 mx-auto bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl flex items-center justify-center transform rotate-3 hover:rotate-0 transition-transform">
+                        <svg class="w-10 h-10 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold">3. Start Learning</h3>
+                    <p class="text-gray-600">Begin your journey with expert instructors and earn certificates</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Enhanced Features Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="serif-heading text-4xl md:text-5xl mb-4">Why Choose Infoverse?</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Experience the future of online learning with our cutting-edge platform</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="card-hover bg-white rounded-2xl p-8 shadow-lg">
+                    <div class="w-16 h-16 feature-icon-bg rounded-2xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Interactive Courses</h3>
+                    <p class="text-gray-600 leading-relaxed">Engaging lessons with real-time feedback, quizzes, and hands-on projects that adapt to your learning pace</p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="card-hover bg-white rounded-2xl p-8 shadow-lg">
+                    <div class="w-16 h-16 feature-icon-bg rounded-2xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Expert Instructors</h3>
+                    <p class="text-gray-600 leading-relaxed">Learn from industry leaders and certified professionals with years of real-world experience</p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="card-hover bg-white rounded-2xl p-8 shadow-lg">
+                    <div class="w-16 h-16 feature-icon-bg rounded-2xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Verified Certificates</h3>
+                    <p class="text-gray-600 leading-relaxed">Earn industry-recognized certificates to showcase your skills and boost your career prospects</p>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="card-hover bg-white rounded-2xl p-8 shadow-lg">
+                    <div class="w-16 h-16 feature-icon-bg rounded-2xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Flexible Learning</h3>
+                    <p class="text-gray-600 leading-relaxed">Study at your own pace with 24/7 access to course materials from any device, anywhere</p>
+                </div>
+                
+                <!-- Feature 5 -->
+                <div class="card-hover bg-white rounded-2xl p-8 shadow-lg">
+                    <div class="w-16 h-16 feature-icon-bg rounded-2xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Track Progress</h3>
+                    <p class="text-gray-600 leading-relaxed">Monitor your learning journey with detailed analytics and personalized recommendations</p>
+                </div>
+                
+                <!-- Feature 6 -->
+                <div class="card-hover bg-white rounded-2xl p-8 shadow-lg">
+                    <div class="w-16 h-16 feature-icon-bg rounded-2xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0 a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Lifetime Support</h3>
+                    <p class="text-gray-600 leading-relaxed">Get assistance from our dedicated support team and vibrant community whenever you need help</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Ready to Get that A? Section -->
+    <section class="py-20 bg-dark relative overflow-hidden">
+        <div class="absolute inset-0">
+            <div class="absolute w-full h-full bg-gradient-to-br from-primary/20 to-secondary/20"></div>
+        </div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center max-w-3xl mx-auto">
+                <h2 class="serif-heading text-4xl md:text-5xl text-white mb-6">Ready to Get that A?</h2>
+                <p class="text-xl text-gray-300 mb-12">Join thousands of successful learners achieving their goals</p>
+                
+                <!-- Success Metric -->
+                <div class="inline-block">
+                    <div class="relative">
+                        <svg class="w-48 h-48 transform -rotate-90">
+                            <circle cx="96" cy="96" r="88" stroke="rgba(255,255,255,0.1)" stroke-width="8" fill="none"/>
+                            <circle cx="96" cy="96" r="88" stroke="url(#gradient)" stroke-width="8" fill="none"
+                                    stroke-dasharray="553" stroke-dashoffset="50" stroke-linecap="round"/>
+                            <defs>
+                                <linearGradient id="gradient">
+                                    <stop offset="0%" stop-color="#3ba0ae"/>
+                                    <stop offset="100%" stop-color="#e8704f"/>
+                                </linearGradient>
+                            </defs>
