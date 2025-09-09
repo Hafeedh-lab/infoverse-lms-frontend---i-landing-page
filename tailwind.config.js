@@ -4,10 +4,11 @@ module.exports = {
     extend: {
       colors: {
         primary: "var(--color-primary)",
-        secondary: "var(--color-secondary)",
+        accent: "var(--color-accent)",
         background: "var(--color-background)",
         foreground: "var(--color-foreground)",
-        border: "var(--border)",
+        muted: "var(--color-muted)",
+        border: "var(--color-border)",
       },
       fontFamily: {
         sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],

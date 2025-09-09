@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "../../components/ui/button";
 import { Card, CardContent } from "../../components/ui/card";
-import { Tabs, TabsList, TabsTrigger } from "../../components/ui/tabs";
+import SearchBar from "../../components/ui/search-bar";
 
 const howItWorksSteps = [
   {
@@ -10,13 +10,12 @@ const howItWorksSteps = [
     image: "https://c.animaapp.com/mfbjddyn8jUtGn/img/image-6.png",
   },
   {
-    title: "Enrol for the Courses",
+    title: "Enroll",
     subtitle: "Secure Your Spot",
     image: "https://c.animaapp.com/mfbjddyn8jUtGn/img/image-7.png",
-    overlayImage: "https://c.animaapp.com/mfbjddyn8jUtGn/img/image-8.png",
   },
   {
-    title: "Start learning",
+    title: "Start Learning",
     subtitle: "Begin Your Journey",
     image: "https://c.animaapp.com/mfbjddyn8jUtGn/img/image-9.png",
   },
@@ -47,244 +46,185 @@ const footerLinks = [
 ];
 
 export const ILandingPage = (): JSX.Element => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
-    <div className="bg-white min-h-screen w-full" data-model-id="160:1713">
-      <div className="max-w-[1920px] mx-auto bg-[#f9f9f9] rounded-[20px] overflow-hidden">
-        {/* Header Section */}
-        <header className="bg-[#33a1cd] rounded-[30px] border border-white p-8 relative overflow-hidden">
-          <div className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:0ms]">
-            {/* Navigation */}
-            <nav className="flex justify-between items-center mb-8">
-              <div className="flex items-center gap-4">
-                <Tabs
-                  defaultValue="home"
-                  className="bg-[#f9f9f9] rounded-[40px] border border-white shadow-[0px_4px_4px_#00000040]"
-                >
-                  <TabsList className="bg-transparent p-0 h-auto">
-                    <TabsTrigger
-                      value="home"
-                      className="bg-[#33a1cd] text-white border border-white rounded-[40px] px-16 py-8 text-4xl font-normal data-[state=active]:bg-[#33a1cd] data-[state=active]:text-white h-auto"
-                    >
-                      Home
-                    </TabsTrigger>
-                    <TabsTrigger
-                      value="subscriptions"
-                      className="bg-transparent text-black px-16 py-8 text-4xl font-normal data-[state=active]:bg-[#33a1cd] data-[state=active]:text-white h-auto"
-                    >
-                      Subscriptions
-                    </TabsTrigger>
-                  </TabsList>
-                </Tabs>
-              </div>
+    <div className="flex min-h-screen flex-col bg-background text-foreground">
+      {/* Header */}
+      <header className="sticky top-0 z-50 w-full border-b bg-white/90 backdrop-blur">
+        <nav className="container flex items-center justify-between py-4">
+          <a href="#" className="text-xl font-bold text-primary">
+            Infoverse
+          </a>
 
-              <div className="bg-[#f9f9f9] rounded-[30px] shadow-[0px_4px_4px_#00000040] px-12 py-4">
-                <div className="flex items-center gap-8">
-                  <Button
-                    variant="ghost"
-                    className="text-black text-4xl font-normal p-0 h-auto hover:bg-transparent"
-                  >
-                    LOG IN
-                  </Button>
-                  <Button
-                    variant="ghost"
-                    className="text-black text-4xl font-normal p-0 h-auto hover:bg-transparent"
-                  >
-                    SIGN UP
-                  </Button>
-                </div>
-              </div>
-            </nav>
+          <button
+            className="md:hidden"
+            aria-label="Toggle navigation menu"
+            onClick={() => setMenuOpen((p) => !p)}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+
+          <ul className="hidden items-center gap-6 md:flex">
+            <li>
+              <a href="#" className="transition-colors hover:text-primary">
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="#" className="transition-colors hover:text-primary">
+                Subscriptions
+              </a>
+            </li>
+          </ul>
+
+          <div className="hidden items-center gap-4 md:flex">
+            <Button variant="ghost">Log In</Button>
+            <Button>Sign Up</Button>
           </div>
-
-          {/* Hero Content */}
-          <div className="grid lg:grid-cols-2 gap-8 items-center">
-            <div className="space-y-6">
-              <div className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms]">
-                <h1 className="[font-family:'Inter',Helvetica] font-bold text-white text-[64px] leading-normal">
-                  Infoverse Digital-Ed
-                </h1>
-              </div>
-
-              <div className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:400ms]">
-                <h2 className="[font-family:'Inria_Serif',Helvetica] font-bold text-white text-[70px] leading-normal">
-                  Unlock a universe of knowledge. Your potential is waiting.
-                </h2>
-              </div>
-
-              <div className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:600ms]">
-                <p className="[font-family:'Inter',Helvetica] font-normal text-white text-5xl leading-normal">
-                  Your personalized path to exam success.
-                </p>
-              </div>
-
-              <div className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:800ms]">
-                <Button className="bg-[#dd7c5e] hover:bg-[#dd7c5e]/90 text-white text-4xl font-normal px-16 py-8 rounded-[30px] h-auto">
-                  Explore Courses
-                </Button>
-              </div>
-            </div>
-
-            <div className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:1000ms]">
-              <img
-                className="w-full max-w-[701px] h-auto rounded-[30px] object-cover"
-                alt="Student studying"
-                src="https://c.animaapp.com/mfbjddyn8jUtGn/img/pexels-leticia-alvares-1805702-30539351-edited-1.png"
-              />
-            </div>
-          </div>
-        </header>
-
-        {/* How It Works Section */}
-        <section className="py-16 px-8">
-          <div className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms]">
-            <h2 className="text-center [font-family:'Inter',Helvetica] font-semibold text-black text-[80px] leading-normal mb-16">
-              How It Works
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {howItWorksSteps.map((step, index) => (
-              <div
-                key={index}
-                className={`text-center translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:${400 + index * 200}ms]`}
-              >
-                <div className="bg-[#dd7c5e] rounded-[30px] w-[219px] h-[211px] mx-auto mb-6 flex items-center justify-center relative">
-                  {step.overlayImage ? (
-                    <div
-                      className="relative w-[177px] h-[177px] bg-cover bg-center bg-no-repeat"
-                      style={{ backgroundImage: `url(${step.image})` }}
-                    >
-                      <img
-                        className="w-[101px] h-[101px] absolute top-0 right-0 object-cover"
-                        alt="Overlay"
-                        src={step.overlayImage}
-                      />
-                    </div>
-                  ) : step.image ===
-                    "https://c.animaapp.com/mfbjddyn8jUtGn/img/image-9.png" ? (
-                    <img
-                      className="w-[180px] h-[180px] object-cover"
-                      alt="Step icon"
-                      src={step.image}
-                    />
-                  ) : (
-                    <img
-                      className="w-[173px] h-[173px] object-cover"
-                      alt="Step icon"
-                      src={step.image}
-                    />
-                  )}
-                </div>
-                <h3 className="[font-family:'Inter',Helvetica] font-semibold text-black text-5xl leading-normal mb-2">
-                  {step.title}
-                </h3>
-                <p className="[font-family:'Inter',Helvetica] font-normal text-black text-5xl leading-normal text-center">
-                  {step.subtitle}
-                </p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Ready to Get that A Section */}
-        <section className="py-16 px-8">
-          <div className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms]">
-            <h2 className="text-center [font-family:'Inter',Helvetica] font-semibold text-black text-[80px] leading-normal mb-8">
-              Ready to Get that A?
-            </h2>
-          </div>
-
-          <div className="flex justify-center mb-8 translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:400ms]">
-            <img
-              className="w-full max-w-[1583px] h-auto object-cover"
-              alt="Success visualization"
-              src="https://c.animaapp.com/mfbjddyn8jUtGn/img/image-10.png"
-            />
-          </div>
-
-          <div className="text-center translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:600ms]">
-            <Button className="bg-[#dd7c5e] hover:bg-[#dd7c5e]/90 text-[#fffdfd] text-5xl font-normal px-16 py-8 rounded-[30px] h-auto">
-              Sign Up Today
-            </Button>
-          </div>
-        </section>
-
-        {/* Testimonials Section */}
-        <section className="py-16 px-8">
-          <div className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms]">
-            <h2 className="text-center [font-family:'Inter',Helvetica] font-semibold text-black text-[80px] leading-normal mb-4">
-              What Learners Say
-            </h2>
-            <p className="text-center [font-family:'Inter',Helvetica] font-normal text-black text-4xl leading-normal mb-16">
-              Trusted Voices
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {testimonials.map((testimonial, index) => (
-              <div
-                key={index}
-                className={`translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:${400 + index * 200}ms]`}
-              >
-                <Card className="bg-[#bdd0d2] border-none rounded-[30px] h-[259px] relative">
-                  <CardContent className="p-6 h-full flex flex-col justify-between">
-                    <p className="[font-family:'Inter',Helvetica] font-normal text-black text-3xl text-center leading-normal">
-                      {testimonial.text}
-                    </p>
-                    <div className="text-center">
-                      <p className="[font-family:'Inter',Helvetica] font-bold text-black text-[32px] leading-normal">
-                        {testimonial.name}
-                      </p>
-                    </div>
-                  </CardContent>
-                </Card>
-                <div className="flex justify-center mt-4">
-                  <img
-                    className="w-40 h-40 object-cover"
-                    alt={`${testimonial.name} avatar`}
-                    src={testimonial.avatar}
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Footer */}
-        <footer className="bg-[#33a1cd] rounded-[20px] p-8">
-          <div className="flex flex-col lg:flex-row justify-between items-start gap-8">
-            <div className="flex items-center gap-4">
-              <img
-                className="w-[117px] h-[117px] rounded-[56px] object-cover"
-                alt="Company logo"
-                src="https://c.animaapp.com/mfbjddyn8jUtGn/img/with-bg-1.png"
-              />
-            </div>
-
-            <div className="flex-1">
-              <div className="[font-family:'Inter',Helvetica] font-normal text-white text-[32px] leading-normal">
-                United Kingdom: +447412858175
-                <br />
-                West Africa: +2349032840916
-                <br />
-                Email: info@infoversedigitaleducation.net
-              </div>
-            </div>
-
-            <div className="flex gap-8">
-              {footerLinks.map((link, index) => (
-                <a
-                  key={index}
-                  href={link.href}
-                  className="[font-family:'Inter',Helvetica] font-normal text-white text-4xl leading-normal hover:underline"
-                >
-                  {link.text}
+        </nav>
+        {menuOpen && (
+          <div className="md:hidden border-t bg-white">
+            <ul className="flex flex-col gap-2 p-4">
+              <li>
+                <a href="#" className="block py-2 hover:text-primary">
+                  Home
                 </a>
-              ))}
-            </div>
+              </li>
+              <li>
+                <a href="#" className="block py-2 hover:text-primary">
+                  Subscriptions
+                </a>
+              </li>
+              <li className="pt-2">
+                <Button className="w-full">Sign Up</Button>
+              </li>
+            </ul>
           </div>
-        </footer>
-      </div>
+        )}
+      </header>
+
+      {/* Hero */}
+      <section className="bg-gradient-to-r from-primary to-primary/80 text-white">
+        <div className="container grid items-center gap-8 py-24 md:grid-cols-2">
+          <div className="space-y-6">
+            <h1 className="text-4xl font-bold md:text-5xl">Infoverse Digital-Ed</h1>
+            <p className="text-lg md:text-xl">
+              Unlock a universe of knowledge. Your potential is waiting.
+            </p>
+            <SearchBar />
+            <Button className="mt-4">Explore Courses</Button>
+          </div>
+          <img
+            src="https://c.animaapp.com/mfbjddyn8jUtGn/img/pexels-leticia-alvares-1805702-30539351-edited-1.png"
+            alt="Student studying"
+            className="w-full rounded-lg shadow-lg"
+          />
+        </div>
+      </section>
+
+      {/* How it works */}
+      <section className="bg-muted py-16">
+        <div className="container">
+          <h2 className="mb-12 text-center text-3xl font-semibold">How It Works</h2>
+          <div className="grid gap-8 md:grid-cols-3">
+            {howItWorksSteps.map((step) => (
+              <Card key={step.title} className="p-6 text-center">
+                <img
+                  src={step.image}
+                  alt={step.title}
+                  className="mx-auto mb-4 h-20 w-20"
+                />
+                <CardContent className="space-y-2 p-0">
+                  <h3 className="text-xl font-semibold">{step.title}</h3>
+                  <p className="text-sm text-muted-foreground">{step.subtitle}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-16">
+        <div className="container text-center">
+          <h2 className="mb-4 text-3xl font-semibold">Ready to Get that A?</h2>
+          <p className="mb-8 text-muted-foreground">
+            Your personalized path to exam success.
+          </p>
+          <Button>Sign Up Today</Button>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="bg-muted py-16">
+        <div className="container">
+          <h2 className="mb-12 text-center text-3xl font-semibold">
+            What Learners Say
+          </h2>
+          <div className="grid gap-8 md:grid-cols-3">
+            {testimonials.map((t) => (
+              <Card key={t.name} className="p-6 text-center">
+                <CardContent className="space-y-4 p-0">
+                  <p className="text-sm text-muted-foreground">{t.text}</p>
+                  <div className="flex flex-col items-center gap-2">
+                    <img
+                      src={t.avatar}
+                      alt=""
+                      className="h-16 w-16 rounded-full"
+                    />
+                    <p className="font-semibold">{t.name}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="mt-16 bg-primary text-white">
+        <div className="container grid gap-8 py-12 md:grid-cols-3">
+          <div>
+            <img
+              src="https://c.animaapp.com/mfbjddyn8jUtGn/img/with-bg-1.png"
+              alt="Infoverse logo"
+              className="mb-4 h-20 w-20 rounded-full"
+            />
+            <p className="text-sm">© 2024 Infoverse Digital-Ed</p>
+          </div>
+          <div>
+            <h3 className="mb-4 font-semibold">Contact</h3>
+            <ul className="space-y-2 text-sm">
+              <li>United Kingdom: +447412858175</li>
+              <li>West Africa: +2349032840916</li>
+              <li>Email: info@infoversedigitaleducation.net</li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="mb-4 font-semibold">Links</h3>
+            <ul className="space-y-2 text-sm">
+              {footerLinks.map((link) => (
+                <li key={link.text}>
+                  <a href={link.href} className="hover:underline">
+                    {link.text}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };
+
+export default ILandingPage;

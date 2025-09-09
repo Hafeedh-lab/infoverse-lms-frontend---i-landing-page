@@ -4,11 +4,12 @@
 
 @layer base {
   :root {
-    --color-primary: #1e40af; /* blue-800 */
-    --color-secondary: #f59e0b; /* amber-500 */
+    --color-primary: #33a1cd; /* brand blue */
+    --color-accent: #dd7c5e; /* accent orange */
     --color-background: #ffffff;
     --color-foreground: #111827; /* gray-900 */
-    --border: #e5e7eb; /* gray-200 */
+    --color-muted: #f9f9f9;
+    --color-border: #e5e7eb; /* gray-200 */
   }
 
   body {
