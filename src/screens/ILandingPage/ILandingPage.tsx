@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "../../components/ui/button";
 import { Card, CardContent } from "../../components/ui/card";
-import { Tabs, TabsList, TabsTrigger } from "../../components/ui/tabs";
+import Header from "../../components/Header";
 
 const howItWorksSteps = [
   {
@@ -49,54 +49,13 @@ const footerLinks = [
 export const ILandingPage = (): JSX.Element => {
   return (
     <div className="bg-white min-h-screen w-full" data-model-id="160:1713">
+      <Header />
       <div className="max-w-[1920px] mx-auto bg-[#f9f9f9] rounded-[20px] overflow-hidden">
-        {/* Header Section */}
-        <header className="bg-[#33a1cd] rounded-[30px] border border-white p-8 relative overflow-hidden">
-          <div className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:0ms]">
-            {/* Navigation */}
-            <nav className="flex justify-between items-center mb-8">
-              <div className="flex items-center gap-4">
-                <Tabs
-                  defaultValue="home"
-                  className="bg-[#f9f9f9] rounded-[40px] border border-white shadow-[0px_4px_4px_#00000040]"
-                >
-                  <TabsList className="bg-transparent p-0 h-auto">
-                    <TabsTrigger
-                      value="home"
-                      className="bg-[#33a1cd] text-white border border-white rounded-[40px] px-16 py-8 text-4xl font-normal data-[state=active]:bg-[#33a1cd] data-[state=active]:text-white h-auto"
-                    >
-                      Home
-                    </TabsTrigger>
-                    <TabsTrigger
-                      value="subscriptions"
-                      className="bg-transparent text-black px-16 py-8 text-4xl font-normal data-[state=active]:bg-[#33a1cd] data-[state=active]:text-white h-auto"
-                    >
-                      Subscriptions
-                    </TabsTrigger>
-                  </TabsList>
-                </Tabs>
-              </div>
-
-              <div className="bg-[#f9f9f9] rounded-[30px] shadow-[0px_4px_4px_#00000040] px-12 py-4">
-                <div className="flex items-center gap-8">
-                  <Button
-                    variant="ghost"
-                    className="text-black text-4xl font-normal p-0 h-auto hover:bg-transparent"
-                  >
-                    LOG IN
-                  </Button>
-                  <Button
-                    variant="ghost"
-                    className="text-black text-4xl font-normal p-0 h-auto hover:bg-transparent"
-                  >
-                    SIGN UP
-                  </Button>
-                </div>
-              </div>
-            </nav>
-          </div>
-
-          {/* Hero Content */}
+        {/* Hero Section */}
+        <header
+          id="home"
+          className="bg-[#33a1cd] rounded-[30px] border border-white p-8 relative overflow-hidden"
+        >
           <div className="grid lg:grid-cols-2 gap-8 items-center">
             <div className="space-y-6">
               <div className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms]">
@@ -135,7 +94,7 @@ export const ILandingPage = (): JSX.Element => {
         </header>
 
         {/* How It Works Section */}
-        <section className="py-16 px-8">
+        <section id="subscriptions" className="py-16 px-8">
           <div className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms]">
             <h2 className="text-center [font-family:'Inter',Helvetica] font-semibold text-black text-[80px] leading-normal mb-16">
               How It Works
@@ -210,7 +169,7 @@ export const ILandingPage = (): JSX.Element => {
         </section>
 
         {/* Testimonials Section */}
-        <section className="py-16 px-8">
+        <section id="testimonials" className="py-16 px-8">
           <div className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms]">
             <h2 className="text-center [font-family:'Inter',Helvetica] font-semibold text-black text-[80px] leading-normal mb-4">
               What Learners Say
@@ -251,7 +210,7 @@ export const ILandingPage = (): JSX.Element => {
         </section>
 
         {/* Footer */}
-        <footer className="bg-[#33a1cd] rounded-[20px] p-8">
+        <footer id="contact" className="bg-[#33a1cd] rounded-[20px] p-8">
           <div className="flex flex-col lg:flex-row justify-between items-start gap-8">
             <div className="flex items-center gap-4">
               <img
