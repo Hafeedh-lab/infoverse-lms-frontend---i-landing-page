@@ -5,9 +5,13 @@ module.exports = {
       colors: {
         primary: "var(--color-primary)",
         secondary: "var(--color-secondary)",
+        accent: "var(--color-accent)",
+        "accent-foreground": "var(--color-accent-foreground)",
         background: "var(--color-background)",
         foreground: "var(--color-foreground)",
         border: "var(--border)",
+        muted: "var(--muted)",
+        "muted-foreground": "var(--muted-foreground)",
       },
       fontFamily: {
         sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
@@ -42,6 +46,6 @@ module.exports = {
     },
     container: { center: true, padding: "2rem", screens: { "2xl": "1400px" } },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animate")],
   darkMode: ["class"],
 };

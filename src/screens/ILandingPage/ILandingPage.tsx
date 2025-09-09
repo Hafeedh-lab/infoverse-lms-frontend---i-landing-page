@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "../../components/ui/button";
 import { Card, CardContent } from "../../components/ui/card";
-import { Tabs, TabsList, TabsTrigger } from "../../components/ui/tabs";
+import { SearchBar } from "../../components/ui/search-bar";
 
 const howItWorksSteps = [
   {
@@ -47,86 +47,77 @@ const footerLinks = [
 ];
 
 export const ILandingPage = (): JSX.Element => {
+  const [menuOpen, setMenuOpen] = React.useState(false);
   return (
     <div className="bg-white min-h-screen w-full" data-model-id="160:1713">
       <div className="max-w-[1920px] mx-auto bg-[#f9f9f9] rounded-[20px] overflow-hidden">
-        {/* Header Section */}
-        <header className="bg-[#33a1cd] rounded-[30px] border border-white p-8 relative overflow-hidden">
-          <div className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:0ms]">
-            {/* Navigation */}
-            <nav className="flex justify-between items-center mb-8">
-              <div className="flex items-center gap-4">
-                <Tabs
-                  defaultValue="home"
-                  className="bg-[#f9f9f9] rounded-[40px] border border-white shadow-[0px_4px_4px_#00000040]"
+        {/* Header & Hero */}
+        <header className="bg-gradient-to-r from-primary to-secondary text-white">
+          <div className="sticky top-0 z-50 bg-primary/90 backdrop-blur-sm">
+            <div className="container mx-auto flex items-center justify-between py-4">
+              <a href="#" className="font-bold text-xl">
+                Infoverse
+              </a>
+              <button
+                className="md:hidden"
+                onClick={() => setMenuOpen(!menuOpen)}
+                aria-label="Toggle navigation"
+              >
+                <svg
+                  className="h-6 w-6"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
                 >
-                  <TabsList className="bg-transparent p-0 h-auto">
-                    <TabsTrigger
-                      value="home"
-                      className="bg-[#33a1cd] text-white border border-white rounded-[40px] px-16 py-8 text-4xl font-normal data-[state=active]:bg-[#33a1cd] data-[state=active]:text-white h-auto"
-                    >
-                      Home
-                    </TabsTrigger>
-                    <TabsTrigger
-                      value="subscriptions"
-                      className="bg-transparent text-black px-16 py-8 text-4xl font-normal data-[state=active]:bg-[#33a1cd] data-[state=active]:text-white h-auto"
-                    >
-                      Subscriptions
-                    </TabsTrigger>
-                  </TabsList>
-                </Tabs>
-              </div>
-
-              <div className="bg-[#f9f9f9] rounded-[30px] shadow-[0px_4px_4px_#00000040] px-12 py-4">
-                <div className="flex items-center gap-8">
-                  <Button
-                    variant="ghost"
-                    className="text-black text-4xl font-normal p-0 h-auto hover:bg-transparent"
-                  >
-                    LOG IN
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
+              </button>
+              <div
+                className={
+                  (menuOpen ? "flex" : "hidden") +
+                  " absolute left-0 right-0 top-full flex-col bg-primary px-4 pb-4 md:static md:flex md:w-auto md:flex-row md:items-center md:gap-6 md:bg-transparent md:p-0"
+                }
+              >
+                <a href="#" className="py-2 hover:text-accent transition-colors">
+                  Home
+                </a>
+                <a href="#" className="py-2 hover:text-accent transition-colors">
+                  Subscriptions
+                </a>
+                <div className="mt-2 flex flex-col gap-2 md:mt-0 md:flex-row md:items-center md:gap-4">
+                  <Button variant="ghost" className="text-white hover:text-accent">
+                    Log in
                   </Button>
-                  <Button
-                    variant="ghost"
-                    className="text-black text-4xl font-normal p-0 h-auto hover:bg-transparent"
-                  >
-                    SIGN UP
-                  </Button>
+                  <Button variant="accent">Sign up</Button>
                 </div>
               </div>
-            </nav>
-          </div>
-
-          {/* Hero Content */}
-          <div className="grid lg:grid-cols-2 gap-8 items-center">
-            <div className="space-y-6">
-              <div className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms]">
-                <h1 className="[font-family:'Inter',Helvetica] font-bold text-white text-[64px] leading-normal">
-                  Infoverse Digital-Ed
-                </h1>
-              </div>
-
-              <div className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:400ms]">
-                <h2 className="[font-family:'Inria_Serif',Helvetica] font-bold text-white text-[70px] leading-normal">
-                  Unlock a universe of knowledge. Your potential is waiting.
-                </h2>
-              </div>
-
-              <div className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:600ms]">
-                <p className="[font-family:'Inter',Helvetica] font-normal text-white text-5xl leading-normal">
-                  Your personalized path to exam success.
-                </p>
-              </div>
-
-              <div className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:800ms]">
-                <Button className="bg-[#dd7c5e] hover:bg-[#dd7c5e]/90 text-white text-4xl font-normal px-16 py-8 rounded-[30px] h-auto">
-                  Explore Courses
-                </Button>
-              </div>
             </div>
-
-            <div className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:1000ms]">
+          </div>
+          <div className="container mx-auto grid items-center gap-8 py-16 md:grid-cols-2">
+            <div className="space-y-6 text-center md:text-left">
+              <h1 className="text-4xl md:text-6xl font-bold">
+                Infoverse Digital-Ed
+              </h1>
+              <h2 className="font-serif text-3xl md:text-5xl font-bold">
+                Unlock a universe of knowledge. Your potential is waiting.
+              </h2>
+              <p className="text-lg md:text-xl">
+                Your personalized path to exam success.
+              </p>
+              <SearchBar className="mx-auto md:mx-0" />
+              <Button variant="accent" className="mt-4">
+                Explore Courses
+              </Button>
+            </div>
+            <div className="mx-auto w-full max-w-md">
               <img
-                className="w-full max-w-[701px] h-auto rounded-[30px] object-cover"
+                className="w-full rounded-2xl object-cover shadow"
                 alt="Student studying"
                 src="https://c.animaapp.com/mfbjddyn8jUtGn/img/pexels-leticia-alvares-1805702-30539351-edited-1.png"
               />
@@ -136,151 +127,102 @@ export const ILandingPage = (): JSX.Element => {
 
         {/* How It Works Section */}
         <section className="py-16 px-8">
-          <div className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms]">
-            <h2 className="text-center [font-family:'Inter',Helvetica] font-semibold text-black text-[80px] leading-normal mb-16">
-              How It Works
-            </h2>
+          <div className="mb-12 text-center">
+            <h2 className="text-3xl md:text-5xl font-bold">How It Works</h2>
           </div>
-
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid gap-8 md:grid-cols-3 max-w-6xl mx-auto">
             {howItWorksSteps.map((step, index) => (
-              <div
+              <Card
                 key={index}
-                className={`text-center translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:${400 + index * 200}ms]`}
+                className="p-6 text-center animate-fade-in"
+                style={{ animationDelay: `${200 + index * 200}ms` }}
               >
-                <div className="bg-[#dd7c5e] rounded-[30px] w-[219px] h-[211px] mx-auto mb-6 flex items-center justify-center relative">
-                  {step.overlayImage ? (
-                    <div
-                      className="relative w-[177px] h-[177px] bg-cover bg-center bg-no-repeat"
-                      style={{ backgroundImage: `url(${step.image})` }}
-                    >
-                      <img
-                        className="w-[101px] h-[101px] absolute top-0 right-0 object-cover"
-                        alt="Overlay"
-                        src={step.overlayImage}
-                      />
-                    </div>
-                  ) : step.image ===
-                    "https://c.animaapp.com/mfbjddyn8jUtGn/img/image-9.png" ? (
-                    <img
-                      className="w-[180px] h-[180px] object-cover"
-                      alt="Step icon"
-                      src={step.image}
-                    />
-                  ) : (
-                    <img
-                      className="w-[173px] h-[173px] object-cover"
-                      alt="Step icon"
-                      src={step.image}
-                    />
-                  )}
+                <div className="mx-auto mb-4 flex h-32 w-32 items-center justify-center rounded-full bg-accent/10">
+                  <img src={step.image} alt={step.title} className="h-24 w-24 object-cover" />
                 </div>
-                <h3 className="[font-family:'Inter',Helvetica] font-semibold text-black text-5xl leading-normal mb-2">
-                  {step.title}
-                </h3>
-                <p className="[font-family:'Inter',Helvetica] font-normal text-black text-5xl leading-normal text-center">
-                  {step.subtitle}
-                </p>
-              </div>
+                <h3 className="mb-2 text-xl font-semibold">{step.title}</h3>
+                <p className="text-muted-foreground">{step.subtitle}</p>
+              </Card>
             ))}
           </div>
         </section>
 
         {/* Ready to Get that A Section */}
-        <section className="py-16 px-8">
-          <div className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms]">
-            <h2 className="text-center [font-family:'Inter',Helvetica] font-semibold text-black text-[80px] leading-normal mb-8">
-              Ready to Get that A?
-            </h2>
+        <section className="py-16 px-8 text-center">
+          <div className="mb-8">
+            <h2 className="text-3xl md:text-5xl font-bold">Ready to Get that A?</h2>
           </div>
-
-          <div className="flex justify-center mb-8 translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:400ms]">
+          <div className="mb-8">
             <img
-              className="w-full max-w-[1583px] h-auto object-cover"
+              className="mx-auto w-full max-w-4xl rounded-2xl object-cover shadow"
               alt="Success visualization"
               src="https://c.animaapp.com/mfbjddyn8jUtGn/img/image-10.png"
             />
           </div>
-
-          <div className="text-center translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:600ms]">
-            <Button className="bg-[#dd7c5e] hover:bg-[#dd7c5e]/90 text-[#fffdfd] text-5xl font-normal px-16 py-8 rounded-[30px] h-auto">
-              Sign Up Today
-            </Button>
-          </div>
+          <Button variant="accent" size="lg">
+            Sign Up Today
+          </Button>
         </section>
 
         {/* Testimonials Section */}
         <section className="py-16 px-8">
-          <div className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms]">
-            <h2 className="text-center [font-family:'Inter',Helvetica] font-semibold text-black text-[80px] leading-normal mb-4">
-              What Learners Say
-            </h2>
-            <p className="text-center [font-family:'Inter',Helvetica] font-normal text-black text-4xl leading-normal mb-16">
-              Trusted Voices
-            </p>
+          <div className="mb-12 text-center">
+            <h2 className="text-3xl md:text-5xl font-bold">What Learners Say</h2>
+            <p className="text-muted-foreground">Trusted Voices</p>
           </div>
-
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid max-w-6xl mx-auto gap-8 md:grid-cols-3">
             {testimonials.map((testimonial, index) => (
-              <div
+              <Card
                 key={index}
-                className={`translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:${400 + index * 200}ms]`}
+                className="animate-fade-in"
+                style={{ animationDelay: `${200 + index * 200}ms` }}
               >
-                <Card className="bg-[#bdd0d2] border-none rounded-[30px] h-[259px] relative">
-                  <CardContent className="p-6 h-full flex flex-col justify-between">
-                    <p className="[font-family:'Inter',Helvetica] font-normal text-black text-3xl text-center leading-normal">
-                      {testimonial.text}
-                    </p>
-                    <div className="text-center">
-                      <p className="[font-family:'Inter',Helvetica] font-bold text-black text-[32px] leading-normal">
-                        {testimonial.name}
-                      </p>
-                    </div>
-                  </CardContent>
-                </Card>
-                <div className="flex justify-center mt-4">
-                  <img
-                    className="w-40 h-40 object-cover"
-                    alt={`${testimonial.name} avatar`}
-                    src={testimonial.avatar}
-                  />
-                </div>
-              </div>
+                <CardContent className="flex h-full flex-col items-center justify-between p-6 text-center">
+                  <p className="mb-4 text-lg">{testimonial.text}</p>
+                  <div>
+                    <img
+                      src={testimonial.avatar}
+                      alt={`${testimonial.name} avatar`}
+                      className="mx-auto mb-2 h-16 w-16 rounded-full object-cover"
+                    />
+                    <p className="font-bold">{testimonial.name}</p>
+                  </div>
+                </CardContent>
+              </Card>
             ))}
           </div>
         </section>
 
         {/* Footer */}
-        <footer className="bg-[#33a1cd] rounded-[20px] p-8">
-          <div className="flex flex-col lg:flex-row justify-between items-start gap-8">
+        <footer className="bg-primary text-white">
+          <div className="container mx-auto grid gap-8 py-12 sm:grid-cols-2 lg:grid-cols-3">
             <div className="flex items-center gap-4">
               <img
-                className="w-[117px] h-[117px] rounded-[56px] object-cover"
+                className="h-20 w-20 rounded-full object-cover"
                 alt="Company logo"
                 src="https://c.animaapp.com/mfbjddyn8jUtGn/img/with-bg-1.png"
               />
+              <span className="text-xl font-bold">Infoverse</span>
             </div>
-
-            <div className="flex-1">
-              <div className="[font-family:'Inter',Helvetica] font-normal text-white text-[32px] leading-normal">
-                United Kingdom: +447412858175
-                <br />
-                West Africa: +2349032840916
-                <br />
-                Email: info@infoversedigitaleducation.net
-              </div>
+            <div>
+              <p className="mb-2 font-semibold">Contact</p>
+              <ul className="space-y-1 text-sm">
+                <li>United Kingdom: +447412858175</li>
+                <li>West Africa: +2349032840916</li>
+                <li>Email: info@infoversedigitaleducation.net</li>
+              </ul>
             </div>
-
-            <div className="flex gap-8">
-              {footerLinks.map((link, index) => (
-                <a
-                  key={index}
-                  href={link.href}
-                  className="[font-family:'Inter',Helvetica] font-normal text-white text-4xl leading-normal hover:underline"
-                >
-                  {link.text}
-                </a>
-              ))}
+            <div>
+              <p className="mb-2 font-semibold">Links</p>
+              <ul className="space-y-1 text-sm">
+                {footerLinks.map((link, index) => (
+                  <li key={index}>
+                    <a href={link.href} className="hover:text-accent">
+                      {link.text}
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </footer>
