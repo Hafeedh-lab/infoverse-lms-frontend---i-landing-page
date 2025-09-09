@@ -9,6 +9,7 @@
     --color-background: #ffffff;
     --color-foreground: #111827; /* gray-900 */
     --border: #e5e7eb; /* gray-200 */
+    --color-accent: #dd7c5e; /* accent for CTAs */
   }
 
   body {

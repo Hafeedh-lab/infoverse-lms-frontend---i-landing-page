@@ -8,6 +8,7 @@ module.exports = {
         background: "var(--color-background)",
         foreground: "var(--color-foreground)",
         border: "var(--border)",
+        accent: "var(--color-accent)",
       },
       fontFamily: {
         sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
