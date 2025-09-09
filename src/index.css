@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Inria+Serif:wght@700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 20% 96%;
+    --muted-foreground: 215 15% 40%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 47.4% 11.2%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 47.4% 11.2%;
+
+    --primary: 231 69% 35%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 217 91% 60%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --accent: 142 76% 36%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 72% 47%;
+    --destructive-foreground: 0 0% 100%;
+
+    --ring: 215 20% 65%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 47.4% 11.2%;
+    --foreground: 210 40% 96%;
+
+    --muted: 217 20% 20%;
+    --muted-foreground: 215 15% 65%;
+
+    --popover: 222.2 47.4% 11.2%;
+    --popover-foreground: 210 40% 96%;
+
+    --border: 217 20% 20%;
+    --input: 217 20% 20%;
+
+    --card: 222.2 47.4% 11.2%;
+    --card-foreground: 210 40% 96%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 231 69% 35%;
+    --secondary-foreground: 210 40% 98%;
+
+    --accent: 142 76% 36%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 72% 37%;
+    --destructive-foreground: 0 0% 100%;
+
+    --ring: 217 32% 32%;
+
+    --radius: 0.5rem;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans p-md md:p-lg;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1 {
+    @apply text-h1 font-serif font-bold mb-sm md:mb-md;
+  }
+
+  h2 {
+    @apply text-h2 font-serif font-semibold mb-sm md:mb-md;
+  }
+
+  h3 {
+    @apply text-h3 font-serif font-semibold mb-xs md:mb-sm;
+  }
+
+  p {
+    @apply text-base mb-sm md:mb-md;
+  }
+}

@@ -48,6 +48,7 @@ module.exports = {
       },
       fontFamily: {
         sans: [
+          "Inter",
           "ui-sans-serif",
           "system-ui",
           "sans-serif",
@@ -56,6 +57,29 @@ module.exports = {
           '"Segoe UI Symbol"',
           '"Noto Color Emoji"',
         ],
+        serif: [
+          "Inria Serif",
+          "ui-serif",
+          "Georgia",
+          "serif",
+        ],
+      },
+      fontSize: {
+        h1: ["clamp(2.5rem, 5vw + 1rem, 3.5rem)", { lineHeight: "1.2" }],
+        h2: ["clamp(2rem, 4vw + 1rem, 2.75rem)", { lineHeight: "1.3" }],
+        h3: ["clamp(1.5rem, 3vw + 1rem, 2.25rem)", { lineHeight: "1.4" }],
+        base: ["1rem", { lineHeight: "1.6" }],
+        lg: ["1.125rem", { lineHeight: "1.6" }],
+        sm: ["0.875rem", { lineHeight: "1.6" }],
+      },
+      spacing: {
+        xs: "0.25rem",
+        sm: "0.5rem",
+        md: "1rem",
+        lg: "1.5rem",
+        xl: "2rem",
+        "2xl": "3rem",
+        "3xl": "4rem",
       },
       keyframes: {
         "accordion-down": {
