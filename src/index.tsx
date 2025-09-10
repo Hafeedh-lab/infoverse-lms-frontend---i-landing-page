@@ -1,9 +1,9 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { IiiLoginPage } from "./screens/IiiLoginPage";
+import { LoginPage } from "./screens/Auth/Login";
 
 createRoot(document.getElementById("app") as HTMLElement).render(
   <StrictMode>
-    <IiiLoginPage />
+    <LoginPage />
   </StrictMode>,
 );

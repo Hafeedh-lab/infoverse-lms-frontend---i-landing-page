@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "../../components/ui/button";
 import { Card, CardContent } from "../../components/ui/card";
+import { HERO_GRADIENT } from "../../constants/gradients";
 import {
   Menu,
   BookOpen,
@@ -220,7 +221,7 @@ export const ILandingPage = (): JSX.Element => {
       </header>
 
       {/* Enhanced Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center bg-gradient-to-br from-primary via-primary/90 to-secondary overflow-hidden">
+      <section className={`relative min-h-[90vh] flex items-center ${HERO_GRADIENT} overflow-hidden`}>
         {/* Animated Background Elements */}
         <div className="absolute inset-0">
           <div className="absolute w-96 h-96 bg-white/10 rounded-full blur-3xl -top-48 -left-48 animate-pulse" />
